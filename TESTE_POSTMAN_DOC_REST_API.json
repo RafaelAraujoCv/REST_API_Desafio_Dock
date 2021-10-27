@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "9e7cc8a8-8013-4ee0-9f10-eceddd36484f",
+		"name": "DOC REST API - Desafio Dock ORM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CONTAS",
+			"item": [
+				{
+					"name": "CRIAR CONTA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPessoa\": 1,\r\n    \"saldo\": 8000.00,\r\n    \"limiteSaqueDiario\": 1000.00,\r\n    \"flagAtivo\": 0,\r\n    \"tipoConta\": 1,\r\n    \"dataCriacao\": \"2021-10-26\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/contas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"contas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DEPOSITO EM CONTA",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"saldo\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/contas/2/deposito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"contas",
+								"2",
+								"deposito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CONSULTA DE SALDO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/contas/2/saldo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"contas",
+								"2",
+								"saldo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BLOQUEAR CONTA",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/contas/1/bloquear",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"contas",
+								"1",
+								"bloquear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SAQUE EM CONTA",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"saldo\": 1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/contas/1/saque",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"contas",
+								"1",
+								"saque"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PESSOAS",
+			"item": [
+				{
+					"name": "TODAS AS PESSOAS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pessoas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UMA PESSOA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pessoas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pessoas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TRANSACOES",
+			"item": [
+				{
+					"name": "EXTRATO DA CONTA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/transacoes/1/extrato",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transacoes",
+								"1",
+								"extrato"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EXTRATO DA CONTA POR PERIODO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/transacoes/extrato/periodo?data_inicial=2020-01-01&data_final=2021-10-26",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transacoes",
+								"extrato",
+								"periodo"
+							],
+							"query": [
+								{
+									"key": "data_inicial",
+									"value": "2020-01-01"
+								},
+								{
+									"key": "data_final",
+									"value": "2021-10-26"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
